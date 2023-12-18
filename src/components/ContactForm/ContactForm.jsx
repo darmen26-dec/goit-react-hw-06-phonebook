@@ -4,11 +4,10 @@ import { addContact } from '../../redux/contactSlice';
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
 import css from '../../components/ContactForm/ContactForm.module.css';
-import { getContacts } from '../../redux/selectors';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(state => state.contacts);
   const [formData, setFormData] = useState({ name: '', number: '' });
 
   useEffect(() => {
